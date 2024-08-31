@@ -20,12 +20,27 @@ public class LoginServlet extends HttpServlet {
         LoginBean loginBean = new LoginBean();
         int result = loginBean.Login(username, password);
         PrintWriter out = resp.getWriter();
-        if (result == 1) {
-            out.println("<h1>Login Success<h1>");
-        } else if (result == 0) {
-            out.println("<h1>Login Failed<h1>");
+        if (username.equals("") || password.equals("")) {
+            out.println("<html><body>" +
+                    "<h1>Username or password are not empty</h1>" +
+                    "</body>");
         } else {
-            out.println("<h1>Invalid User<h1>");
+            if (result == 1) {
+                out.println("<html><body>" +
+                        "<h1>Login success</h1>" +
+                        "</body>");
+            }
+            if (result == 0) {
+                out.println("<html><body>" +
+                        "<h1>Password invalid</h1>" +
+                        "</body>");
+            }
+            if (result == -1) {
+                out.println("<html><body>" +
+                        "<h1>Username invalid</h1>" +
+                        "</body>");
+            }
         }
+        out.close();
     }
 }
