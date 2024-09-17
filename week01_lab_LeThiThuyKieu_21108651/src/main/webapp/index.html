@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .btn {
+        .container {
+            width: 30%;
+            height: 200px;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+        .form-login {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 200px;
+        }
+        span {
+            font-size: 25px;
+        }
+        .ip {
+            border-radius: 5px;
+            width: 300px;
+            height: 30px;
+            font-size: 20px;
+        }
+        .btn-login {
             background-color: #4CAF50;
             border: none;
             border-radius: 5px;
-            padding: 15px 32px;
+            padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             display: flex;
@@ -16,16 +39,18 @@
             align-items: center;
             margin: 0 auto;
             cursor: pointer;
-        }
-        a {
             color: white;
-            text-decoration: none;
             font-size: 20px;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <button class="btn"><a href="login.html">LOGIN</a></button>
+<div class="container">
+    <form action="login" method="post" class="form-login">
+        <span>Username: <input type="text" name="us" class="ip"></span>
+        <span>Password:  <input type="password" name="pw" class="ip"></span>
+        <input type="submit" value="Login" class="btn-login">
+    </form>
+</div>
 </body>
 </html>

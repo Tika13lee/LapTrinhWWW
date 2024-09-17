@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dashboard</title>
 </head>
 <body>
-    <h1 style="text-align: center">CHÀO MỪNG BẠN ĐẾN VỚI BÌNH NGUYÊN VÔ TẬN</h1>
+    <div>
+        <div>
+            <h2>Thông tin người dùng</h2>
+            <p>Username: <span id="username"></span></p>
+            <p>Role: <span id="role"></span></p>
+            <p>Fullname: <span id="fullname"></span></p>
+            <p>Email: <span id="email"></span></p>
+            <p>Phone: <span id="phone"></span></p>
+            <p>Status: <span id="status"></span></p>
+        </div>
+        <div>
+            <h2>Danh sách người dùng</h2>
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+                </thead>
+                <tbody id="list-account">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        fetch('/accounts')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById("list-account");
+
+                data.forEach(account => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${account.account_id}</td>
+                        <td>${account.username}</td>
+                        <td>${account.email}</td>
+                        <td>${account.phone}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching accounts:', error));
+    </script>
 </body>
 </html>
