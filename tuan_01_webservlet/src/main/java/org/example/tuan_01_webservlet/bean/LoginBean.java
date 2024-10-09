@@ -1,4 +1,4 @@
-package org.example.session01.bean;
+package org.example.tuan_01_webservlet.bean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
