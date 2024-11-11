@@ -8,7 +8,7 @@ import vn.edu.iuh.fit.backend.data.repositories.AccountRepository;
 import java.util.List;
 
 @Stateless
-public class AccountBean implements  AccountLocal{
+public class AccountBean implements AccountLocal {
     @Inject
     private AccountRepository accountRepository;
 
